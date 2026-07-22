@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bathroom Excellence — Video Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#1A2332;
+  --darker:#111820;
+  --darkest:#0D1219;
+  --teal:#4ABFB5;
+  --teal-dark:#37A89F;
+  --white:#FFFFFF;
+  --off-white:#F4F6F8;
+  --grey-mid:#9BA5B0;
+  --gold:#C8A96E;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;background:var(--darkest);color:var(--white);overflow-x:hidden;line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(13,18,25,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(74,191,181,0.15);padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:14px}
+.nav-logo{height:38px}
+.nav-divider{width:1px;height:26px;background:rgba(255,255,255,0.12)}
+.nav-tagline{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:600}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-link{font-size:12px;color:rgba(255,255,255,0.55);text-decoration:none;padding:7px 14px;border-radius:4px;transition:all .2s;letter-spacing:0.3px}
+.nav-link:hover{color:var(--white);background:rgba(74,191,181,0.08)}
+.nav-cta{background:var(--teal) !important;color:var(--darkest) !important;font-weight:700 !important;border-radius:4px}
+.nav-cta:hover{background:var(--teal-dark) !important}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,18,25,0.25) 0%,rgba(13,18,25,0.65) 50%,rgba(13,18,25,1) 100%),url('https://lirp.cdn-website.com/1a4563b4/dms3rep/multi/opt/pexels-photo-5977765-1920w.jpeg') center/cover no-repeat}
+.hero-grid{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(74,191,181,0.025) 0,rgba(74,191,181,0.025) 1px,transparent 1px,transparent 120px),repeating-linear-gradient(0deg,rgba(74,191,181,0.025) 0,rgba(74,191,181,0.025) 1px,transparent 1px,transparent 120px);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:720px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:3.5px;text-transform:uppercase;color:var(--teal);margin-bottom:24px;font-weight:600}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';flex:0 0 30px;height:1px;background:var(--teal);opacity:0.5}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,70px);font-weight:700;line-height:1.08;color:var(--white);margin-bottom:18px}
+.hero-title em{font-style:italic;color:var(--teal)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 40px;font-weight:300;line-height:1.85}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-teal{background:var(--teal);color:var(--darkest);font-size:13px;font-weight:700;padding:13px 30px;border-radius:4px;text-decoration:none;letter-spacing:0.5px;transition:background .2s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;font-family:'Open Sans',sans-serif}
+.btn-teal:hover{background:var(--teal-dark)}
+.btn-ghost{background:transparent;color:var(--white);font-size:13px;font-weight:500;padding:12px 28px;border-radius:4px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);letter-spacing:0.5px;transition:all .2s}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+
+/* SECTION */
+.section-intro{padding:72px 24px 0;max-width:760px;margin:0 auto;text-align:center}
+.eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:12px}
+.section-h{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);font-weight:700;color:var(--white);margin-bottom:14px;line-height:1.25}
+.section-p{font-size:14px;color:var(--grey-mid);line-height:1.85;font-weight:300}
+
+/* HOW IT WORKS */
+.how-section{padding:64px 24px 80px;background:var(--darkest)}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(74,191,181,0.08);border:1px solid rgba(74,191,181,0.08);border-radius:8px;overflow:hidden;max-width:960px;margin:48px auto 0}
+.how-card{background:var(--darker);padding:36px 28px;position:relative;transition:background .25s}
+.how-card:hover{background:#141e2b}
+.how-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);opacity:0;transition:opacity .3s}
+.how-card:hover::after{opacity:1}
+.how-num{font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:rgba(74,191,181,0.09);line-height:1;margin-bottom:2px}
+.how-badge{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;border:1px solid rgba(74,191,181,0.25);border-radius:3px;padding:3px 9px;margin-bottom:14px}
+.how-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--white);font-weight:500;margin-bottom:10px}
+.how-body{font-size:13px;color:var(--grey-mid);line-height:1.75;font-weight:300}
+
+/* VIDEO BLOCKS */
+.videos-section{background:var(--darkest)}
+.video-block{display:grid;grid-template-columns:1fr 1fr;min-height:460px;border-top:1px solid rgba(74,191,181,0.07)}
+.video-block:nth-child(even) .vb-info{order:2}
+.video-block:nth-child(even) .vb-player{order:1}
+
+.vb-info{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--dark);position:relative;overflow:hidden}
+.vb-info::after{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--teal);opacity:0;transition:opacity .3s}
+.video-block:hover .vb-info::after{opacity:1}
+.vb-step{font-family:'Playfair Display',serif;font-size:78px;font-weight:700;color:rgba(74,191,181,0.07);line-height:1;margin-bottom:-4px}
+.vb-badge{display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);font-weight:700;background:rgba(74,191,181,0.09);border:1px solid rgba(74,191,181,0.2);border-radius:3px;padding:4px 10px;margin-bottom:16px}
+.vb-title{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,30px);color:var(--white);font-weight:700;line-height:1.2;margin-bottom:14px}
+.vb-body{font-size:13px;color:var(--grey-mid);line-height:1.85;font-weight:300;margin-bottom:28px}
+.vb-watch{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--teal);letter-spacing:0.5px;text-decoration:none}
+.vb-watch svg{width:14px;height:14px;transition:transform .2s}
+.vb-watch:hover svg{transform:translateX(4px)}
+
+/* VIDEO PLAYER PANEL */
+.vb-player{background:var(--darker);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:400px}
+.vb-player-bg{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(74,191,181,0.018) 0,rgba(74,191,181,0.018) 1px,transparent 1px,transparent 50px)}
+.vb-video-wrap{position:relative;z-index:2;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:32px}
+video{width:100%;max-width:480px;border-radius:6px;outline:none;background:#000;box-shadow:0 8px 40px rgba(0,0,0,0.6)}
+video:focus{outline:2px solid var(--teal);outline-offset:3px}
+
+/* FOOTER */
+.site-footer{background:#080e15;border-top:1px solid rgba(74,191,181,0.1);padding:56px 24px 32px;text-align:center}
+.footer-logo-txt{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:6px}
+.footer-logo-txt span{color:var(--teal)}
+.footer-tagline{font-size:11px;color:var(--grey-mid);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:32px}
+.footer-bar{width:40px;height:1px;background:rgba(74,191,181,0.35);margin:0 auto 28px}
+.footer-cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:var(--darkest);font-size:13px;font-weight:700;padding:13px 32px;border-radius:4px;text-decoration:none;letter-spacing:0.5px;transition:background .2s}
+.footer-cta-btn:hover{background:var(--teal-dark)}
+.footer-meta{margin-top:40px;font-size:11px;color:rgba(255,255,255,0.18)}
+.footer-meta a{color:rgba(74,191,181,0.4);text-decoration:none}
+
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .video-block{grid-template-columns:1fr}
+  .video-block .vb-info,.video-block .vb-player{order:unset !important}
+  .vb-info{padding:36px 24px}
+  .vb-player{min-height:260px}
+  .how-grid{grid-template-columns:1fr}
+  video{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <img class="nav-logo" src="https://lirp.cdn-website.com/1a4563b4/dms3rep/multi/opt/Bathroom_Excellence_Logo_WHITE-1920w.png" alt="Bathroom Excellence" onerror="this.outerHTML='<span style=\'font-family:Playfair Display,serif;font-size:17px;font-weight:700;color:#fff\'>Bathroom Excellence</span>'" />
+    <div class="nav-divider"></div>
+    <span class="nav-tagline">Video Hub</span>
+  </div>
+  <div class="nav-links">
+    <a href="#how" class="nav-link">How it works</a>
+    <a href="#video-1" class="nav-link">Videos</a>
+    <a href="tel:+18002458143" class="nav-link" style="color:rgba(255,255,255,0.55)">(800) 245-8143</a>
+    <a href="https://www.bathroomexcellence.com/contact" target="_blank" class="nav-link nav-cta">Free Estimate</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Bathroom Excellence · St. Charles, MO</div>
+    <h1 class="hero-title">Your Bathroom,<br><em>Transformed.</em></h1>
+    <p class="hero-sub">Watch our short videos below to learn about our services, what happens after you book, and how we follow up — every step of the way.</p>
+    <div class="hero-actions">
+      <a href="#video-1" class="btn-teal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        Watch videos
+      </a>
+      <a href="https://www.bathroomexcellence.com/contact" target="_blank" class="btn-ghost">Get a free estimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-intro">
+    <div class="eyebrow">How it works</div>
+    <h2 class="section-h">Three videos. Three moments.<br>One seamless journey.</h2>
+    <p class="section-p">Each video below is delivered to leads at a specific point in the process — so every touchpoint feels personal and timely.</p>
+  </div>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">01</div>
+      <div class="how-badge">New lead</div>
+      <div class="how-title">Introduction video</div>
+      <div class="how-body">Sent when a new lead enters the CRM. They learn who we are, what we do, and why homeowners in St. Charles trust us with their bathrooms.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">02</div>
+      <div class="how-badge">Appointment booked</div>
+      <div class="how-title">Book appointment video</div>
+      <div class="how-body">Sent the moment a lead books a consultation. It sets expectations, builds confidence, and ensures they arrive ready to move forward.</div>
+    </div>
+    <div class="how-card">
+      <div class="how-num">03</div>
+      <div class="how-badge">Apollo follow-up</div>
+      <div class="how-title">Follow-up video</div>
+      <div class="how-body">Sent via Apollo outreach after the appointment. It reinforces our value and keeps the lead warm while they make their final decision.</div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS SECTION -->
+<section class="videos-section">
+
+  <!-- VIDEO 1 -->
+  <div class="video-block" id="video-1">
+    <div class="vb-info">
+      <div class="vb-step">01</div>
+      <div class="vb-badge">Introduction</div>
+      <h3 class="vb-title">Welcome to<br>Bathroom Excellence</h3>
+      <p class="vb-body">This is the first message your new leads receive. Watch to learn about who we are, the services we offer, and why homeowners across St. Charles and the Greater St. Louis Area choose Bathroom Excellence for their renovation.</p>
+      <a href="#video-1" class="vb-watch">
+        Watch this video
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <div class="vb-player">
+      <div class="vb-player-bg"></div>
+      <div class="vb-video-wrap">
+        <video controls preload="metadata" poster="">
+          <source src="v1.mp4.mp4" type="video/mp4" />
+          Your browser does not support video playback.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO 2 -->
+  <div class="video-block" id="video-2">
+    <div class="vb-info">
+      <div class="vb-step">02</div>
+      <div class="vb-badge">Book Appointment</div>
+      <h3 class="vb-title">Your Appointment<br>is Confirmed</h3>
+      <p class="vb-body">Sent right after a lead books their in-home consultation. This video walks them through what to expect, how to prepare, and what the renovation process looks like — turning a booked slot into a committed conversation.</p>
+      <a href="#video-2" class="vb-watch">
+        Watch this video
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <div class="vb-player">
+      <div class="vb-player-bg"></div>
+      <div class="vb-video-wrap">
+        <video controls preload="metadata">
+          <source src="v2_1.mp4.mp4" type="video/mp4" />
+          Your browser does not support video playback.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO 3 -->
+  <div class="video-block" id="video-3">
+    <div class="vb-info">
+      <div class="vb-step">03</div>
+      <div class="vb-badge">Apollo Follow-Up</div>
+      <h3 class="vb-title">Still Thinking?<br>Here's Our Story.</h3>
+      <p class="vb-body">Sent via Apollo outreach after the appointment. This video speaks directly to leads still weighing their options — addressing hesitations, sharing what past clients experienced, and making it easy to say yes to getting started.</p>
+      <a href="#video-3" class="vb-watch">
+        Watch this video
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </a>
+    </div>
+    <div class="vb-player">
+      <div class="vb-player-bg"></div>
+      <div class="vb-video-wrap">
+        <video controls preload="metadata">
+          <source src="v3_1.mp4.mp4" type="video/mp4" />
+          Your browser does not support video playback.
+        </video>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-logo-txt">Bathroom <span>Excellence</span></div>
+  <div class="footer-tagline">St. Charles, MO · Bathroom Remodeling Specialists</div>
+  <div class="footer-bar"></div>
+  <a href="https://www.bathroomexcellence.com/contact" target="_blank" class="footer-cta-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    Book a free estimate
+  </a>
+  <div class="footer-meta">
+    1811 Sherman Dr, Suite 10 · St Charles, MO 63303 ·
+    <a href="tel:+18002458143">(800) 245-8143</a> ·
+    <a href="https://www.bathroomexcellence.com" target="_blank">bathroomexcellence.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
