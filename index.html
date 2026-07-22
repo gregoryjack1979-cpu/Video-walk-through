@@ -102,15 +102,73 @@ video:focus{outline:2px solid var(--teal);outline-offset:3px}
 .footer-meta{margin-top:40px;font-size:11px;color:rgba(255,255,255,0.18)}
 .footer-meta a{color:rgba(74,191,181,0.4);text-decoration:none}
 
+/* HAMBURGER */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(13,18,25,0.98);backdrop-filter:blur(16px);z-index:199;flex-direction:column;padding:16px 0;border-bottom:1px solid rgba(74,191,181,0.15)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:15px;color:rgba(255,255,255,0.7);text-decoration:none;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.05);transition:color .2s}
+.mobile-menu a:hover{color:var(--teal)}
+.mobile-menu-cta{background:var(--teal) !important;color:var(--darkest) !important;font-weight:700 !important;margin:12px 24px 4px;border-radius:4px;text-align:center;border-bottom:none !important;padding:13px 24px !important}
+
+/* TABLET */
+@media(max-width:1024px){
+  .vb-info{padding:44px 36px}
+  .hero-title{font-size:48px}
+  .how-grid{grid-template-columns:1fr 1fr}
+}
+
+/* MOBILE */
 @media(max-width:768px){
-  nav{padding:0 20px}
+  nav{padding:0 16px;height:60px}
+  .nav-hamburger{display:flex}
+  .nav-logo{height:30px}
+  .nav-tagline{display:none}
+  .nav-divider{display:none}
   .nav-links{display:none}
-  .video-block{grid-template-columns:1fr}
-  .video-block .vb-info,.video-block .vb-player{order:unset !important}
-  .vb-info{padding:36px 24px}
-  .vb-player{min-height:260px}
-  .how-grid{grid-template-columns:1fr}
-  video{max-width:100%}
+
+  .hero{min-height:100svh;padding:80px 20px 60px}
+  .hero-title{font-size:36px;line-height:1.15}
+  .hero-sub{font-size:14px}
+  .hero-eyebrow{font-size:10px;letter-spacing:2px}
+  .hero-actions{flex-direction:column;align-items:center;gap:10px}
+  .btn-teal,.btn-ghost{width:100%;max-width:280px;justify-content:center;padding:14px 20px;font-size:14px}
+
+  .how-section{padding:48px 16px 56px}
+  .section-intro{padding:48px 16px 0}
+  .section-h{font-size:26px}
+  .section-p{font-size:13px}
+  .how-grid{grid-template-columns:1fr;gap:1px}
+  .how-card{padding:28px 20px}
+  .how-num{font-size:40px}
+  .how-title{font-size:16px}
+
+  .videos-section{display:block}
+  .video-block{grid-template-columns:1fr;min-height:unset}
+  .video-block .vb-info{order:1 !important}
+  .video-block .vb-player{order:2 !important}
+  .vb-info{padding:32px 20px}
+  .vb-step{font-size:52px}
+  .vb-title{font-size:22px}
+  .vb-body{font-size:13px;margin-bottom:20px}
+  .vb-player{min-height:220px}
+  .vb-video-wrap{padding:16px}
+  video{width:100%;max-width:100%;border-radius:4px}
+
+  .site-footer{padding:40px 20px 28px}
+  .footer-logo-txt{font-size:22px}
+  .footer-cta-btn{width:100%;max-width:280px;justify-content:center}
+  .footer-meta{font-size:10px;line-height:1.8}
+}
+
+/* SMALL MOBILE */
+@media(max-width:380px){
+  .hero-title{font-size:30px}
+  .vb-title{font-size:20px}
+  .how-card{padding:24px 16px}
 }
 </style>
 </head>
@@ -123,13 +181,26 @@ video:focus{outline:2px solid var(--teal);outline-offset:3px}
     <div class="nav-divider"></div>
     <span class="nav-tagline">Video Hub</span>
   </div>
-  <div class="nav-links">
-    <a href="#how" class="nav-link">How it works</a>
-    <a href="#video-1" class="nav-link">Videos</a>
+  <div class="nav-links" id="nav-links">
+    <a href="#how" class="nav-link" onclick="closeMenu()">How it works</a>
+    <a href="#video-1" class="nav-link" onclick="closeMenu()">Videos</a>
     <a href="tel:+18002458143" class="nav-link" style="color:rgba(255,255,255,0.55)">(800) 245-8143</a>
     <a href="https://www.bathroomexcellence.com/contact" target="_blank" class="nav-link nav-cta">Free Estimate</a>
   </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#how" onclick="closeMenu()">How it works</a>
+  <a href="#video-1" onclick="closeMenu()">Videos</a>
+  <a href="#video-2" onclick="closeMenu()">Appointment video</a>
+  <a href="#video-3" onclick="closeMenu()">Follow-up video</a>
+  <a href="tel:+18002458143">(800) 245-8143</a>
+  <a href="https://www.bathroomexcellence.com/contact" target="_blank" class="mobile-menu-cta">Free Estimate</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -268,5 +339,17 @@ video:focus{outline:2px solid var(--teal);outline-offset:3px}
   </div>
 </footer>
 
+<script>
+function toggleMenu(){
+  const menu=document.getElementById('mobile-menu');
+  const btn=document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+</script>
 </body>
 </html>
